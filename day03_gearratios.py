@@ -1,5 +1,3 @@
-
-
 def part1():
     f = open("day03_input.txt", "r")
     input = []
@@ -13,7 +11,6 @@ def part1():
                 allparts.update(parts)
     print(sum([part_number for part_number,_,_ in allparts]))
 
-
 def part2():
     f = open("day03_input.txt", "r")
     input = []
@@ -22,7 +19,7 @@ def part2():
     total = 0
     for i in range(1, len(input) - 1):
         for j, c in enumerate(input[i]):
-            if is_symbol(c):
+            if c == "*":
                 parts = process_symbol(input, i, j)
                 if len(parts) == 2:
                     total += parts[0][0] * parts[1][0]
@@ -50,7 +47,6 @@ def find_part_number(line, index):
 OFFSETS = ((-1,-1), (-1,0), (-1,1),
             (0,-1), (0,1),
             (1,-1), (1, 0), (1,1))
-
 
 def process_symbol(input, i, j):
     parts = set()
