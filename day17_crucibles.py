@@ -40,6 +40,7 @@ def dijkstra(min_consecutive, max_consecutive):
             continue
         visited.add((i, j, dir))
 
+        # Move between min_consecutive and max_consecutive blocks before turning.
         for k in range(min_consecutive, max_consecutive + 1):
             i2, j2 = i, j
             if dir == NORTH:
