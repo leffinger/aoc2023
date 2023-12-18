@@ -40,7 +40,6 @@ def dijkstra(min_consecutive, max_consecutive):
             continue
         visited.add((i, j, dir))
 
-        # Move 4 - 10 spaces in the current. direction
         for k in range(min_consecutive, max_consecutive + 1):
             i2, j2 = i, j
             if dir == NORTH:
