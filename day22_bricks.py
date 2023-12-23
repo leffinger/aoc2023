@@ -19,13 +19,14 @@ for i in brick_start:
             for z in range(z1, z2 + 1):
                 grid[(x, y, z)] = i
 
-# Figure out how far the brick can fall, and which bricks are preventing it
-# from falling further.
+# Sort the bricks by z coordinate in ascending order (literally).
 bottoms_up = [(coord[2], i) for i, coord in brick_start.items()]
 bottoms_up.sort()
 blockers = collections.defaultdict(set)
 blocking = collections.defaultdict(set)
 for _, i in bottoms_up:
+    # Figure out how far the brick can fall, and which bricks are preventing
+    # it from falling further.
     x1, y1, z1 = brick_start[i]
     x2, y2, z2 = brick_end[i]
     final_decrement = z1 - 1
